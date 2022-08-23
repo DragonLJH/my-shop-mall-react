@@ -1,5 +1,5 @@
 import { FC, useState, useEffect } from "react";
-import { useHistory, useLocation } from "react-router-dom"; 
+import { useHistory, useLocation } from "react-router-dom";
 import { Button, Card, message, List, Avatar, Tooltip, Typography } from 'antd';
 import { queryAllEmergeApi, queryProductByEmergeApi } from "../../../api";
 
@@ -11,7 +11,7 @@ const SuspensionBar: FC = () => {
         queryAllEmerge();
     }, [])
     const queryAllEmerge = async () => {
-        await queryAllEmergeApi("http://localhost:8787/emerge/queryAllEmerge", {}).then((allEmerge) => {
+        await queryAllEmergeApi("/emerge/queryAllEmerge", {}).then((allEmerge) => {
             setProductPositioning(allEmerge.data)
         })
     }
@@ -66,7 +66,7 @@ function SuspensionBarCard(rest: any) {
                             <List.Item.Meta
                                 avatar={<Avatar shape="square" size={64} src={item.productRotationImg[0]} />}
                                 title={item.productName}
-                                description={<Tooltip placement="top" title={item.productMsg}><Paragraph ellipsis={false}>{item.productMsg} </Paragraph></Tooltip>}
+                                description={<Tooltip placement="top" title={item.productMsg}><Paragraph ellipsis >{item.productMsg} </Paragraph></Tooltip>}
                             />
                         </List.Item>
                     )}
