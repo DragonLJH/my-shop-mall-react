@@ -8,8 +8,8 @@ const axios = myAxios();
 export const queryUserByUserNameApi = (url: string, config: AxiosRequestConfig) => {
     return axios.get(url, config)
 }
-export const insertUserApi = (url: string, config: AxiosRequestConfig) => {
-    return axios.post(url, config)
+export const insertUserApi = (url: string, data: any, config: AxiosRequestConfig) => {
+    return axios.post(url, data, config)
 }
 /*-----------------------------------------User-------------------------------------------------------*/
 
@@ -62,14 +62,14 @@ export const queryAllEmergeApi = (url: string, config: AxiosRequestConfig) => {
 export const queryShopByUserNameApi = (url: string, config: AxiosRequestConfig) => {
     return axios.get(url, config)
 }
-export const updateShopByIdApi = (url: string, config: AxiosRequestConfig) => {
-    return axios.post(url, config)
+export const updateShopByIdApi = (url: string, data: any, config: AxiosRequestConfig) => {
+    return axios.post(url, data, config)
 }
-export const deleteShopbyIdApi = (url: string, config: AxiosRequestConfig) => {
-    return axios.get(url, config)
+export const deleteShopbyIdApi = (url: string, data: any, config: AxiosRequestConfig) => {
+    return axios.post(url, data, config)
 }
-export const insertShopApi = (url: string, config: AxiosRequestConfig) => {
-    return axios.get(url, config)
+export const insertShopApi = (url: string, data: any, config: AxiosRequestConfig) => {
+    return axios.post(url, data, config)
 }
 /*-----------------------------------------shop-------------------------------------------------------*/
 

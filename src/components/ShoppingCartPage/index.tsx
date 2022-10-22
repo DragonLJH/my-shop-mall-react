@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from 'react';
 import { Table, Button, Space, Avatar, InputNumber, message } from 'antd';
 import { DeleteOutlined } from '@ant-design/icons';
 import './css/index.css'
-import { queryShopByUserNameApi, updateShopByIdApi, deleteShopbyIdApi } from "../../api"; 
+import { queryShopByUserNameApi, updateShopByIdApi, deleteShopbyIdApi } from "../../api";
 
 const ShoppingCartPage: FC = () => {
     const userName = localStorage.getItem("user");
@@ -99,7 +99,7 @@ const ShoppingCartPage: FC = () => {
 
     const onChange = (value: any, text: any) => {
         if (value !== null) {
-            updateShopByIdApi("/shop/updateShopById", { data: { selectNum: value, shopId: text.shopId } })
+            updateShopByIdApi("/shop/updateShopById", { selectNum: value, shopId: text.shopId }, {})
         }
         text.selectNum = value;
         let newShoppingCartData = [...shoppingCartData];
@@ -108,7 +108,7 @@ const ShoppingCartPage: FC = () => {
     }
 
     const onDel = (text: any) => {
-        deleteShopbyIdApi("/shop/deleteShopbyId", { data: { shopId: text.shopId } })
+        deleteShopbyIdApi("/shop/deleteShopbyId", { shopId: text.shopId }, {})
             .then((val) => {
                 if (val.data) {
                     message.success('商品删除成功');

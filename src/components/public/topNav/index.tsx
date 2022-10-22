@@ -8,7 +8,7 @@ import "./css/index.css"
 
 const { Link } = Typography;
 
-const TopNav = () => {
+const TopNav: FC = () => {
     const history = useHistory();
     const location = useLocation();
     const { pathname } = { ...location };
@@ -93,7 +93,7 @@ const TopNav = () => {
     return (
         <div className="top-nav">
             {pathname === "/loginPage" ? "" :
-                <Row style={{ backgroundColor: "#ddd" }} wrap={false}>
+                <Row style={{ backgroundColor: "#f5f5f5" }} wrap={false}>
                     <Col flex="auto"></Col>
                     {showFlag()}
                 </Row>

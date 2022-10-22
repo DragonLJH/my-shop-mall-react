@@ -42,7 +42,7 @@ const LoginPage: FC = () => {
     //注册 验证
     const RonFinish = (values: { userName: any; userPassword: any; }) => {
         RonReset();
-        insertUserApi("/user/insertUser", { data: { userName: values.userName, userPassword: values.userPassword } })
+        insertUserApi("/user/insertUser", { userName: values.userName, userPassword: values.userPassword }, {})
             .then((myData) => {
                 console.log(myData)
                 if (myData.data) {

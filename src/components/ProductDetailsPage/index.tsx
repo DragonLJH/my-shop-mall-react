@@ -62,8 +62,9 @@ const ProductDetailsPage: FC = () => {
             message.warn("用户没登录")
             history.push("/loginPage")
         } else {
-            insertShopApi("/shop/insertShop", { data: { values } }).then((val) => {
+            insertShopApi("/shop/insertShop", values, {}).then((val) => {
                 if (val) {
+                    
                     history.push("/shoppingCartPage")
                     message.success("成功添加到购物车")
                 } else {
