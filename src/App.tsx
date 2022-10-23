@@ -33,7 +33,7 @@ const App: FC = () => {
           <TopNav />
           <MySearch />
         </div>
-        <div style={{ paddingTop: "100px", width: "80%", margin: "0 auto" }}>
+        <div style={{ paddingTop: "120px", width: "80%", margin: "0 auto" }}>
           <Switch>
             <Route exact path="/" component={HomePage}>
             </Route>
