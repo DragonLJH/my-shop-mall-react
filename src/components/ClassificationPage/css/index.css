@@ -1,0 +1,13 @@
+.classification-title{
+    margin: 10px 0px;
+}
+.classification-title-item{
+    border-bottom: solid 2px #f40;
+}
+.classification-title-item > span{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #f40;
+    color: #fff;
+    cursor: pointer;
+}

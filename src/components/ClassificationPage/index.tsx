@@ -3,6 +3,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import { List, Card, Divider, Typography, Tooltip, Row, Col } from 'antd';
 import { queryProductByEmergeApi } from "../../api";
 import SuspensionBar from "../public/suspensionBar/index"
+import "./css/index.css"
 
 
 const { Paragraph, Title, Text } = Typography;
@@ -37,7 +38,15 @@ const ClassificationPage: FC = () => {
 
     return (
         <>
-            <Divider orientation="center">{`<<${classificationTitle}>>`}</Divider>
+            {/* <Divider orientation="center">{`<<${classificationTitle}>>`}</Divider> */}
+            <div className="classification-title">
+                <div className="classification-title-item">
+                    <span>所有宝贝({classificationTitle})</span>
+                </div>
+                {/* <div className="classification-title-search">
+
+                </div> */}
+            </div>
             {/* <Row gutter={[40, 40]} wrap={false}>
                 <Col flex="300px" >
                     <SuspensionBar />
