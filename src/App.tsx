@@ -29,7 +29,7 @@ const App: FC = () => {
   return (
     <exportContext.Provider value={myLoginExit}>
       <Router>
-        <div style={{ height: "100px", position: "fixed", width: "100%", zIndex: 999 }}>
+        <div style={{ height: "120px", position: "fixed", width: "100%", zIndex: 999 }}>
           <TopNav />
           <MySearch />
         </div>
