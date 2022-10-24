@@ -27,11 +27,11 @@ const MySearch: FC = () => {
     return (
         <>
             {pathname === "/loginPage" ? "" :
-                <Row gutter={40} style={{ backgroundColor: "#fff" }} align="middle">
-                    <Col flex="300px" >
-                        <Divider style={{ cursor: "pointer" }}> <span onClick={() => { history.replace({ pathname: "/" }); }}> DragonLogo</span> </Divider>
-                    </Col>
-                    <Col flex="auto">
+                <div className="my-search">
+                    <div className="my-search-item logo">
+                        <span onClick={() => { history.replace({ pathname: "/" }); }}> DragonLogo</span>
+                    </div>
+                    <div className="my-search-msg">
                         {/* <Search placeholder="请输入查询信息" enterButton="Search" size="large" onSearch={onSearch} /> */}
                         <div className="my-search-div">
                             <div className="my-search-div-input">
@@ -40,15 +40,15 @@ const MySearch: FC = () => {
                             </div>
                             <div className="my-search-div-msg">
                                 {mySearchDivMsg.map((item, index) => {
-                                    return <span key={index} className="item">{item}</span>
+                                    return <span key={index} className="my-search-div-msg-item">{item}</span>
                                 })}
                             </div>
                         </div>
-                    </Col>
-                    <Col flex="300px" >
-                        <Divider style={{ cursor: "pointer" }}> <ShoppingCartOutlined /><span onClick={() => { history.replace({ pathname: "/shoppingCartPage" }); }}> 购物车</span> </Divider>
-                    </Col>
-                </Row>
+                    </div>
+                    <div className="my-search-item shop">
+                        <ShoppingCartOutlined /><span onClick={() => { history.replace({ pathname: "/shoppingCartPage" }); }}> 购物车</span>
+                    </div>
+                </div>
             }
         </>
     )

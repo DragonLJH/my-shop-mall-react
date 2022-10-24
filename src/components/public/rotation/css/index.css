@@ -18,8 +18,11 @@
 .carousel-div{
     width: 400px;
     height: 600px;
+    max-width: 0 auto;
+    display: inline-block;
     position: relative;
 }
+
 .carousel-div-img{
     position: absolute;
     width: 100%;
