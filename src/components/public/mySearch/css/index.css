@@ -8,6 +8,7 @@
 
 .my-search-item {
     display: flex;
+    cursor: pointer;
     align-items: center;
     justify-content: center;
     width: 300px;
@@ -58,14 +59,14 @@
     color: #999999;
 }
 
-.my-search-div-msg>span {
+.my-search-div-msg>.my-search-div-msg-item {
     display: inline-block;
     margin-right: 10px;
     cursor: pointer;
 }
 
-.my-search-div-msg>span:hover {
-    text-decoration: underline solid 1px #ccc;
+.my-search-div-msg>.my-search-div-msg-item:hover {
+    text-decoration: underline;
 }
 
 

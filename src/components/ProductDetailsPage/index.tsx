@@ -1,10 +1,10 @@
 import { FC, useEffect, useState } from 'react';
 import { useHistory, useLocation } from "react-router-dom";
-import { Row, Col, Divider, Typography, Form, Input, InputNumber, Radio, Button, Tabs, Descriptions, Image, message, List, Badge, Space } from 'antd';
+import { Row, Col, Avatar, Typography, Form, Input, InputNumber, Radio, Button, Tabs, Descriptions, Image, message, List, Badge, Space } from 'antd';
 import './css/index.css';
 import { queryProductByIdApi, queryCommentsByProductIdApi, insertShopApi } from "../../api";
 import SuspensionBar from "../public/suspensionBar/index"
-import { UserOutlined } from '@ant-design/icons';
+import { UserOutlined,PayCircleOutlined } from '@ant-design/icons';
 const { Text, Title } = Typography;
 const { TabPane } = Tabs;
 
@@ -64,7 +64,7 @@ const ProductDetailsPage: FC = () => {
         } else {
             insertShopApi("/shop/insertShop", values, {}).then((val) => {
                 if (val) {
-                    
+
                     history.push("/shoppingCartPage")
                     message.success("成功添加到购物车")
                 } else {
@@ -95,7 +95,11 @@ const ProductDetailsPage: FC = () => {
     return (
         <>
             {productDetails == null ? "" : <div>
-                <Divider style={{ fontSize: "20px", padding: "20px 0px" }} orientation="left">{productDetails.productName}</Divider>
+                {/* <Divider style={{ fontSize: "20px", padding: "20px 0px" }} orientation="left">{productDetails.productName}</Divider> */}
+                <div className="product-details-describe">
+                    <Avatar icon={<PayCircleOutlined />} size={40} />
+                    <div>{productDetails.productName}</div>
+                </div>
                 <Row gutter={[40, 40]} wrap={false}>
                     <Col flex="300px" >
                         <SuspensionBar />

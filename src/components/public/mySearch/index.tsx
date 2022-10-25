@@ -40,7 +40,7 @@ const MySearch: FC = () => {
                             </div>
                             <div className="my-search-div-msg">
                                 {mySearchDivMsg.map((item, index) => {
-                                    return <span key={index} className="my-search-div-msg-item">{item}</span>
+                                    return <div key={index} className="my-search-div-msg-item">{item}</div>
                                 })}
                             </div>
                         </div>

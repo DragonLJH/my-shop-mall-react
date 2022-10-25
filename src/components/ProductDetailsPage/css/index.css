@@ -1,0 +1,14 @@
+.product-details-describe{
+    font-weight: 600;
+    height: 50px;
+    padding: 10px;
+    margin: 10px 0px;
+    border: solid 1px #eee;
+    border-radius: 25px;
+    box-shadow: 0px 3px 3px #eee;
+    display: flex;
+    align-items: center;
+}
+.product-details-describe>div{
+    margin-left: 10px;
+}
