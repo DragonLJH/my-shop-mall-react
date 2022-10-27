@@ -32,7 +32,28 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
+}
+ 
+
+.app-top {
+  height: 120px;
+  width: 100%;
+  z-index: 999;
+}
+
+.app-main {
+  width: 80%;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 375px) { 
+  .app-main {
+    width: 100%;
+  }
+
+
 }

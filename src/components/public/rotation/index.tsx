@@ -45,61 +45,52 @@ const Rotation: FC = () => {
     }
 
     return (
-        <>
-            <div >
-                <Row wrap={false}>
-                    <Col flex="300px">
-                        {/* <List
-                            bordered
-                            dataSource={typeDate}
-                            renderItem={(item: any) => (
-                                <List.Item>
-                                    <Link onClick={toTypePage}>
-                                        {item.typeTitle}
-                                    </Link>
-                                </List.Item>
-                            )}
-                        /> */}
-                        <div className="rotation-left">
-                            <div className="rotation-left-title">
-                                分类
-                            </div>
-                            <div className="rotation-left-msg">
-                                {typeDate.map((item: any, index: number) => {
-                                    return (<div className="rotation-left-msg-item" key={index}>
-                                        <Link onClick={toTypePage}>
-                                            {item.typeTitle}
-                                        </Link>
-                                    </div>)
-                                })}
-                            </div>
-                        </div>
-
-                    </Col>
-                    <Col flex="auto">
-                        <Carousel autoplay>
-                            {rotationData.map((val: any, key: number) => {
-                                return (
-                                    <div className="carousel-div" key={key} onClick={() => { return toProductDetailsPage(val.productId) }}>
-                                        <img className="carousel-div-img" src={val.rotationImg} />
-                                    </div>
-                                )
-                            })}
-                        </Carousel>
-                    </Col>
-                    <Col flex="300px">
-                        <div className="rotation-right">
-                            <div className="rotation-right-title">
-                            </div>
-                            <div className="rotation-right-msg">
-                            </div>
-                        </div>
-
-                    </Col>
-                </Row>
-
+        <div className="rotation">
+            {/* <List
+                bordered
+                dataSource={typeDate}
+                renderItem={(item: any) => (
+                    <List.Item>
+                        <Link onClick={toTypePage}>
+                            {item.typeTitle}
+                        </Link>
+                    </List.Item>
+                )}
+            /> */}
+            <div className="rotation-left">
+                <div className="rotation-left-title">
+                    分类
+                </div>
+                <div className="rotation-left-msg">
+                    {typeDate.map((item: any, index: number) => {
+                        return (<div className="rotation-left-msg-item" key={index}>
+                            <Link onClick={toTypePage}>
+                                {item.typeTitle}
+                            </Link>
+                        </div>)
+                    })}
+                </div>
             </div>
-        </>
+
+            <div className="rotation-main">
+                <Carousel autoplay>
+                    {rotationData.map((val: any, key: number) => {
+                        return (
+                            <div className="carousel-div" key={key} onClick={() => { return toProductDetailsPage(val.productId) }}>
+                                <img className="carousel-div-img" src={val.rotationImg} />
+                            </div>
+                        )
+                    })}
+                </Carousel>
+            </div>
+            <div className="rotation-right">
+                <div className="rotation-right-title">
+                </div>
+                <div className="rotation-right-msg">
+                </div>
+            </div>
+
+        </div>
     )
 }
 

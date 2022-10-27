@@ -6,7 +6,7 @@ import Rotation from "../public/rotation/index"
 import { queryAllEmergeApi } from "../../api"
 
 const HomePage: FC = () => {
-    const [emergeData, setEmergeData]  = useState([])
+    const [emergeData, setEmergeData] = useState([])
 
     const queryAllEmerge = async () => {
         await queryAllEmergeApi("/emerge/queryAllEmerge", {}).then((res) => {
@@ -19,14 +19,14 @@ const HomePage: FC = () => {
     }, [])
 
     return (
-        <>
+        <div className="home-page">
             <div><Rotation /></div>
-            <div>
+            <div className="home-page-main">
                 {emergeData.map((item, key) => {
                     return <div key={key}><EmergeCart val={item} /></div>
                 })}
             </div>
-        </>
+        </div>
     )
 }
 

@@ -29,11 +29,11 @@ const App: FC = () => {
   return (
     <exportContext.Provider value={myLoginExit}>
       <Router>
-        <div style={{ height: "120px", position: "fixed", width: "100%", zIndex: 999 }}>
+        <div className="app-top" >
           <TopNav />
           <MySearch />
         </div>
-        <div style={{ paddingTop: "120px", width: "80%", margin: "0 auto" }}>
+        <div className="app-main" >
           <Switch>
             <Route exact path="/" component={HomePage}>
             </Route>

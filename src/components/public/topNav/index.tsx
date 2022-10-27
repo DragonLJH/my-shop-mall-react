@@ -42,7 +42,7 @@ const TopNav: FC = () => {
             return (
                 <Col style={{ width: "300px" }}>
                     <Space size="middle">
-                        <Button danger type="primary" icon={<PoweroffOutlined />} onClick={() => { return topNavContext.Exit(() => { history.push(pathname); setFlag(false); }) }} > {user} 退出登录 </Button>
+                        <Button danger type="link" icon={<PoweroffOutlined />} onClick={() => { return topNavContext.Exit(() => { history.push(pathname); setFlag(false); }) }} > {user} 退出登录 </Button>
                         {/* <span onClick={() => { history.push("/myPage"); }}><UserOutlined />我的</span> */}
                         <Link href="#/myPage" >
                             <UserOutlined />我的
@@ -53,7 +53,8 @@ const TopNav: FC = () => {
         }
         let unsuccessful = () => {
             return (
-                <Col style={{ width: "800px", backgroundColor: "#e3e4e5", color: "#999" }}>
+                
+                <Col className="unsuccessful-col" style={{ width: "800px", backgroundColor: "#e3e4e5", color: "#999" }}>
                     <Form form={form} layout="inline" onFinish={onFinish}>
                         <Form.Item
                             label="用户名"

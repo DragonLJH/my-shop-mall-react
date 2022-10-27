@@ -3,3 +3,23 @@
   overflow: "hidden";
   float: "right";
 }
+
+
+@media screen and (max-width: 375px) {
+  .unsuccessful-col{
+    background-color: #eee  !important;
+    padding: 5px 2px;
+  }
+
+  .unsuccessful-col .ant-col.ant-form-item-label {
+    display: none !important;
+  }
+
+  .unsuccessful-col .ant-form-item-control {
+    width: 130px;
+  }
+  .unsuccessful-col .ant-row.ant-form-item:last-child {
+    display: none !important;
+  }
+
+}
