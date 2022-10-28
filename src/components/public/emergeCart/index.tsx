@@ -68,9 +68,9 @@ const EmergeCart: FC<any> = ({ ...rest }): any => {
                     )}
                 /> */}
 
-                {emergeCartData.map((item: any) => {
+                {emergeCartData.map((item: any, index: number) => {
                     return (
-                        <div className="emerge-cart-item">
+                        <div key={index} className="emerge-cart-item" onClick={() => { toProductDetailsPage(item["productId"]) }}>
                             <Card onClick={() => { toProductDetailsPage(item.productId) }}
                                 hoverable
                                 cover={<img className="emerge-cart-item-img" src={item.productRotationImg[0]} />}
@@ -81,9 +81,7 @@ const EmergeCart: FC<any> = ({ ...rest }): any => {
                                         <Title level={5}>{item.productName}</Title>
                                         <Text type="danger">￥{item.productSellingPrice}</Text>
                                     </>}
-                                    description={<Tooltip placement="top" title={item.productMsg}>
-                                        <Paragraph ellipsis >{item.productMsg} </Paragraph>
-                                    </Tooltip>}
+                                    description={<Paragraph ellipsis={{ rows: 2, tooltip: item.productMsg }} >{item.productMsg} </Paragraph>}
                                 />
                             </Card>
                         </div>

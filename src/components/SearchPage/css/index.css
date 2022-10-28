@@ -1,0 +1,13 @@
+.searc-data-item{
+    width: 200px;
+    display: inline-block;
+    margin: 5px;
+}
+
+@media screen and (max-width: 375px) {
+    .searc-data-item{
+        width: calc(50% - 10px);
+        display: inline-block;
+        margin: 5px;
+    }
+}

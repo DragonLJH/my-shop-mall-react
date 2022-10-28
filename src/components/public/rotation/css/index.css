@@ -39,7 +39,7 @@
 
     .rotation>.rotation-left, .rotation>.rotation-main, .rotation>.rotation-right {
 
-        width:100%;
+        width:calc(100% - 20px);
         min-width: 200px;
         margin: 10px;
     }
