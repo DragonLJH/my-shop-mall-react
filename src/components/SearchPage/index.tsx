@@ -35,24 +35,22 @@ function SearchPage() {
 
     return (
         <>
-            <div>
-                <List
-                    grid={{ gutter: 16, column: 4 }}
-                    itemLayout="horizontal"
-                    dataSource={searchData}
-                    renderItem={(item: any) => (
-                        <List.Item onClick={() => { toProductDetailsPage(item.productId) }}>
-                            <Card onClick={() => { toProductDetailsPage(item.productId) }}
-                                hoverable
-                                cover={<img alt="example" src={item.productRotationImg[0]} />}
-                            >
-                                <Title level={4}><Text type="danger">￥{item.productSellingPrice}</Text></Title>
-                                <Meta title={item.productName} description={<Tooltip placement="top" title={item.productMsg}><Paragraph ellipsis={false}>{item.productMsg} </Paragraph></Tooltip>} />
-                            </Card>
-                        </List.Item>
-                    )}
-                />
-            </div>
+            <List
+                grid={{ gutter: 16, column: 2 }}
+                itemLayout="horizontal"
+                dataSource={searchData}
+                renderItem={(item: any) => (
+                    <List.Item onClick={() => { toProductDetailsPage(item.productId) }}>
+                        <Card onClick={() => { toProductDetailsPage(item.productId) }}
+                            hoverable
+                            cover={<img alt="example" src={item.productRotationImg[0]} />}
+                        >
+                            <Title level={4}><Text type="danger">￥{item.productSellingPrice}</Text></Title>
+                            <Meta title={item.productName} description={<Tooltip placement="top" title={item.productMsg}><Paragraph ellipsis={false}>{item.productMsg} </Paragraph></Tooltip>} />
+                        </Card>
+                    </List.Item>
+                )}
+            />
         </>
     )
 }

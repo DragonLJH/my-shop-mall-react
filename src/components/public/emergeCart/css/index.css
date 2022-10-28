@@ -1,0 +1,41 @@
+.emerge-cart .ant-card-body {
+    display: flex;
+    overflow-x: auto;
+}
+.ant-card-meta{
+    width: 100%;
+}
+
+.emerge-cart .emerge-cart-item {
+    min-width: 200px;
+    max-width: 200px;
+    margin: 0px 5px;
+}
+
+.emerge-cart .emerge-cart-item-img {
+    padding: 15px;
+}
+.emerge-cart .emerge-cart-item-price{
+
+}
+.emerge-cart-item-description{
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

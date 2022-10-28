@@ -4,7 +4,7 @@ import { Row, Col, Avatar, Typography, Form, Input, InputNumber, Radio, Button, 
 import './css/index.css';
 import { queryProductByIdApi, queryCommentsByProductIdApi, insertShopApi } from "../../api";
 import SuspensionBar from "../public/suspensionBar/index"
-import { UserOutlined,PayCircleOutlined } from '@ant-design/icons';
+import { UserOutlined, PayCircleOutlined } from '@ant-design/icons';
 const { Text, Title } = Typography;
 const { TabPane } = Tabs;
 
@@ -100,7 +100,120 @@ const ProductDetailsPage: FC = () => {
                     <Avatar icon={<PayCircleOutlined />} size={40} />
                     <div>{productDetails.productName}</div>
                 </div>
-                <Row gutter={[40, 40]} wrap={false}>
+                <div className="product-details-main">
+                    <div className="product-details-main-left">
+                        <SuspensionBar />
+                    </div>
+                    <div className="product-details-main-msg">
+                        <div className="product-details-main-msg-top">
+                            <div className="product-details-main-msg-img" >
+                                <div style={{ width: "100%", marginBottom: "10px" }} >
+                                    <BigPicture src={bigPictureSrc} />
+                                </div>
+                                <Row justify="space-around">
+                                    {productDetails.productRotationImg.map((val: string | undefined, key: number) => {
+                                        return <Col key={key} span={4}><img onClick={(e: any) => { setBigPictureSrc(e.target.src) }} onMouseEnter={(e: any) => { setBigPictureSrc(e.target.src) }} style={{ width: "100%", cursor: "pointer" }} src={val} /></Col>
+                                    })}
+                                </Row>
+                            </div>
+                            <div className="product-details-main-msg-item" >
+                                <Space wrap>
+                                    <Title level={4}>{productDetails.productMsg}</Title>
+                                </Space>
+
+                                <Title level={4}><Text type="secondary">  销售价格：</Text><Text type="danger">￥{productDetails.productSellingPrice}</Text></Title>
+                                <div><Text type="secondary">  市场价格：</Text><Text delete> ￥{productDetails.productPrice}</Text></div>
+                                <Row>
+                                    <Col flex={1}><Text type="secondary">  库存：{productDetails.productStock}</Text></Col>
+                                    <Col flex={1}><Text type="secondary">  销量：{productDetails.productSalesVolume}</Text></Col>
+                                </Row>
+                                <Form labelCol={{ span: 4 }} wrapperCol={{ span: 20 }} form={myform} onFinish={onFinish}>
+                                    <Form.Item name="productRotationImg" hidden initialValue={productDetails.productRotationImg[0]}> <Input /> </Form.Item>
+                                    <Form.Item name="userName" hidden initialValue={user}> <Input /> </Form.Item>
+                                    <Form.Item name="productId" hidden initialValue={productDetails.productId}> <Input /> </Form.Item>
+                                    <Form.Item name="productName" hidden initialValue={productDetails.productName}> <Input /> </Form.Item>
+                                    <Form.Item name="productSellingPrice" hidden initialValue={productDetails.productSellingPrice}> <Input /> </Form.Item>
+                                    <Form.Item label="颜色：" >
+                                        <Form.Item name="selectColor" noStyle initialValue={productDetails.productColor[0]}>
+                                            <Radio.Group buttonStyle="solid">{productDetails.productColor.map((val: any, key: number) => { return <Radio.Button key={key} value={val}>{val}</Radio.Button> })}</Radio.Group>
+                                        </Form.Item>
+                                    </Form.Item>
+                                    <Form.Item label="尺寸：" >
+                                        <Form.Item name="selectSize" noStyle initialValue={productDetails.productSize[0]}>
+                                            <Radio.Group buttonStyle="solid">{productDetails.productSize.map((val: any, key: number) => { return <Radio.Button key={key} value={val}>{val}</Radio.Button> })}</Radio.Group>
+                                        </Form.Item>
+                                    </Form.Item>
+                                    <Form.Item label="数量： " >
+                                        <Form.Item name="selectNum" noStyle initialValue={1}>
+                                            <InputNumber min={1} max={productDetails.productStock} />
+                                        </Form.Item>
+                                    </Form.Item>
+                                    <Form.Item >
+                                        <Button type="primary" htmlType="submit">
+                                            加入购物车
+                                        </Button>
+                                    </Form.Item>
+                                </Form>
+                            </div>
+
+                        </div><div style={{ margin: "50px 10px" }}>
+                            <Tabs type="card">
+                                <TabPane tab="图片介绍" key="1">
+                                    {productDetails.productMsgImg.map((val: any, key: number) => {
+                                        return <div key={key} ><Image width="100%" src={val} /></div>
+                                    })}
+                                </TabPane>
+                                <TabPane tab="商品介绍" key="2">
+                                    <Descriptions title={productDetails.productName} bordered >
+                                        <Descriptions.Item label="商品编号">{productDetails.productId}</Descriptions.Item>
+                                        <Descriptions.Item label="商品名称">{productDetails.productName}</Descriptions.Item>
+                                        <Descriptions.Item label="商品信息">{productDetails.productMsg}</Descriptions.Item>
+                                        <Descriptions.Item label="商品类型">{productDetails.productType}</Descriptions.Item>
+                                        <Descriptions.Item label="销售价格">{productDetails.productSellingPrice}</Descriptions.Item>
+                                        <Descriptions.Item label="市场价格">{productDetails.productPrice}</Descriptions.Item>
+                                        <Descriptions.Item label="库存">{productDetails.productStock}</Descriptions.Item>
+                                        <Descriptions.Item label="销量">{productDetails.productSalesVolume}</Descriptions.Item>
+                                        <Descriptions.Item label="尺寸">{productDetails.productSize}</Descriptions.Item>
+                                        <Descriptions.Item label="颜色">{productDetails.productColor}</Descriptions.Item>
+                                        <Descriptions.Item label="商品定位">{productDetails.productEmergeSite}</Descriptions.Item>
+                                    </Descriptions>
+                                </TabPane>
+                                <TabPane tab={<Badge count={commentData.length} showZero overflowCount={99}></Badge>} key="3">
+                                    <div >
+                                        <List
+                                            itemLayout="horizontal"
+                                            pagination={{ pageSize: 10 }}
+                                            dataSource={commentData}
+                                            renderItem={(item: any) => (
+                                                <List.Item>
+                                                    <List.Item.Meta
+                                                        avatar={<UserOutlined />}
+                                                        title={<Space align="start" size={15}> <span>{item.userName}</span><span>发布时间：{item.createDate}</span></Space>}
+                                                        description={item.commentMsg}
+                                                    />
+                                                </List.Item>
+                                            )}
+                                        />
+                                        {/* <Row>
+                                            <Col flex="100px">
+                                                <UserOutlined /><span>{user}</span>
+                                            </Col>
+                                            <Col flex="auto">
+                                                <TextArea allowClear rows={4} onChange={(e) => { setComment(e.target.value) }} />
+                                            </Col>
+                                        </Row>
+                                        <Button type="primary" block onClick={onComment}>
+                                            提交评论
+                                        </Button> */}
+                                    </div>
+                                </TabPane>
+                            </Tabs>
+                        </div>
+
+
+                    </div>
+                </div>
+                {/* <Row gutter={[40, 40]} wrap={false}>
                     <Col flex="300px" >
                         <SuspensionBar />
                     </Col>
@@ -195,7 +308,7 @@ const ProductDetailsPage: FC = () => {
                                                 </List.Item>
                                             )}
                                         />
-                                        {/* <Row>
+                                        <Row>
                                             <Col flex="100px">
                                                 <UserOutlined /><span>{user}</span>
                                             </Col>
@@ -205,13 +318,13 @@ const ProductDetailsPage: FC = () => {
                                         </Row>
                                         <Button type="primary" block onClick={onComment}>
                                             提交评论
-                                        </Button> */}
+                                        </Button>
                                     </div>
                                 </TabPane>
                             </Tabs>
                         </div>
                     </Col>
-                </Row>
+                </Row> */}
             </div>}
         </>
     )

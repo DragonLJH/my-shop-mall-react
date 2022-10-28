@@ -28,32 +28,34 @@ const App: FC = () => {
   const myLoginExit = LoginExit();
   return (
     <exportContext.Provider value={myLoginExit}>
-      <Router>
-        <div className="app-top" >
-          <TopNav />
-          <MySearch />
-        </div>
-        <div className="app-main" >
-          <Switch>
-            <Route exact path="/" component={HomePage}>
-            </Route>
-            <Route exact path="/shoppingCartPage" component={ShoppingCartPage}>
-            </Route>
-            <Route exact path="/loginPage" component={LoginPage}>
-            </Route>
-            <Route exact path="/searchPage" component={SearchPage}>
-            </Route>
-            <Route exact path="/productDetailsPage" component={ProductDetailsPage}>
-            </Route>
-            <Route exact path="/classificationPage" component={ClassificationPage}>
-            </Route>
-            <Route exact path="/myPage" component={MyPage}>
-            </Route>
-            <Route exact path="/typePage" component={TypePage}>
-            </Route>
-          </Switch>
-        </div>
-      </Router>
+      <div className="app" >
+        <Router>
+          <div className="app-top" >
+            <TopNav />
+            <MySearch />
+          </div>
+          <div className="app-main" >
+            <Switch>
+              <Route exact path="/" component={HomePage}>
+              </Route>
+              <Route exact path="/shoppingCartPage" component={ShoppingCartPage}>
+              </Route>
+              <Route exact path="/loginPage" component={LoginPage}>
+              </Route>
+              <Route exact path="/searchPage" component={SearchPage}>
+              </Route>
+              <Route exact path="/productDetailsPage" component={ProductDetailsPage}>
+              </Route>
+              <Route exact path="/classificationPage" component={ClassificationPage}>
+              </Route>
+              <Route exact path="/myPage" component={MyPage}>
+              </Route>
+              <Route exact path="/typePage" component={TypePage}>
+              </Route>
+            </Switch>
+          </div>
+        </Router>
+      </div>
     </exportContext.Provider>
   )
 }

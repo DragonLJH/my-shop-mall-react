@@ -39,7 +39,8 @@
 
     .rotation>.rotation-left, .rotation>.rotation-main, .rotation>.rotation-right {
 
-        width: 355px;
+        width:100%;
+        min-width: 200px;
         margin: 10px;
     }
 
