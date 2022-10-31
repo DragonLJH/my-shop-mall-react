@@ -1,0 +1,28 @@
+.info-card-flex {
+    display: flex;
+}
+
+.info-card-flex>.ant-card-cover {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.info-card-flex>.ant-card-body {
+    flex: 2;
+}
+
+
+.info-card {
+    width: 200px;
+    display: inline-block;
+    margin: 5px !important;
+}
+
+@media screen and (max-width: 375px) {
+    .info-card {
+        width: calc(50% - 10px);
+        display: inline-block;
+        margin: 5px !important;
+    }
+}

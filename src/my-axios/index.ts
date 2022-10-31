@@ -27,7 +27,7 @@ const myAxios = (config?: AxiosRequestConfig) => {
     instance.interceptors.request.use(
         // 请求拦截器
         (res: AxiosRequestConfig) => {
-            message.success("请求成功")
+            // message.success("请求成功")
             return res
         },
         (err: any) => err,
@@ -35,7 +35,7 @@ const myAxios = (config?: AxiosRequestConfig) => {
     instance.interceptors.response.use(
         // 响应拦截器
         (res: AxiosResponse) => {
-            message.success("响应成功")
+            // message.success("响应成功")
             return res
         },
         (err: any) => err,

@@ -1,13 +1,47 @@
-.classification-title{
+.classification-title {
     margin: 10px 0px;
 }
-.classification-title-item{
+
+.classification-title-item {
     border-bottom: solid 2px #f40;
 }
-.classification-title-item > span{
+
+.classification-title-item>span {
     display: inline-block;
     padding: 10px 20px;
     background-color: #f40;
     color: #fff;
     cursor: pointer;
+}
+
+.classification-main {
+    display: none;
+}
+
+.classification-main-item {
+    width: 100%;
+    margin: 5px 0px;
+}
+
+.classification-main-item>div {
+    display: flex;
+}
+
+.classification-main-item .ant-card-cover {
+    flex: 1;
+    display: flex;
+    align-items: center ;
+}
+.classification-main-item .ant-card-body {
+    flex: 2;
+}
+@media screen and (max-width: 375px) {
+    .classification-list {
+        display: none;
+    }
+
+    .classification-main {
+        display: block;
+    }
+
 }

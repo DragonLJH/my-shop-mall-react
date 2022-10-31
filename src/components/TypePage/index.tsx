@@ -3,7 +3,9 @@ import { useHistory, useLocation } from "react-router-dom";
 import { List, Card, Divider, Typography, Tooltip, Row, Col } from 'antd';
 import { queryProductByTypeApi } from "../../api";
 import SuspensionBar from "../public/suspensionBar/index"
+import InfoCard from "../public/InfoCard/index"
 
+import "./css/index.css"
 
 const { Paragraph, Title, Text } = Typography;
 const { Meta } = Card;
@@ -39,24 +41,15 @@ const ClassificationPage: FC = () => {
         <>
             <Divider orientation="center">{`<<${typeTitle}>>`}</Divider>
             <Row wrap={false} gutter={40}>
-                <Col flex="200px">
+                <Col flex="200px" className="type-row-left">
                     <SuspensionBar />
                 </Col>
                 <Col flex="auto">
                     <List
-                        grid={{ gutter: 16, column: 5 }}
                         pagination={{ pageSize: 15 }}
                         dataSource={typeData}
                         renderItem={(item: any) => (
-                            <List.Item>
-                                <Card onClick={() => { toProductDetailsPage(item.productId) }}
-                                    hoverable
-                                    cover={<img alt="example" src={item.productRotationImg[0]} />}
-                                >
-                                    <Title level={4}><Text type="danger">￥{item.productSellingPrice}</Text></Title>
-                                    <Meta title={item.productName} description={<Tooltip placement="top" title={item.productMsg}><Paragraph ellipsis={false}>{item.productMsg} </Paragraph></Tooltip>} />
-                                </Card>
-                            </List.Item>
+                            <InfoCard item={item} isflex={true} />
                         )}
                     />
                 </Col>

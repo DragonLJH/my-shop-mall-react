@@ -3,7 +3,9 @@ import { useHistory, useLocation } from "react-router-dom";
 import { List, Card, Divider, Typography, Tooltip, Row, Col } from 'antd';
 import { queryProductByEmergeApi } from "../../api";
 import SuspensionBar from "../public/suspensionBar/index"
+import InfoCard from "../public/InfoCard/index"
 import "./css/index.css"
+import Item from "antd/lib/list/Item";
 
 
 const { Paragraph, Title, Text } = Typography;
@@ -72,6 +74,7 @@ const ClassificationPage: FC = () => {
             </Col>
             </Row> */}
             <List
+                className="classification-list"
                 grid={{ gutter: 16, column: 5 }}
                 pagination={{ pageSize: 15 }}
                 dataSource={classificationData}
@@ -87,6 +90,27 @@ const ClassificationPage: FC = () => {
                     </List.Item>
                 )}
             />
+            <div className="classification-main">
+                {classificationData.map((item: any, index: number) => {
+                    return (
+                        // <div className="classification-main-item">
+                        //     <Card onClick={() => { toProductDetailsPage(item.productId) }}
+                        //         hoverable
+                        //         cover={<img alt="example" src={item.productRotationImg[0]} />}
+                        //     >
+                        //         <Meta
+                        //             title={<>
+                        //                 <Title level={5}>{item.productName}</Title>
+                        //                 <Text type="danger">￥{item.productSellingPrice}</Text>
+                        //             </>}
+                        //             description={<Paragraph ellipsis={{ rows: 2, tooltip: item.productMsg }} >{item.productMsg} </Paragraph>}
+                        //         />
+                        //     </Card>
+                        // </div>
+                        <InfoCard item={item} isflex={true} />
+                    )
+                })}
+            </div>
         </>
     )
 }

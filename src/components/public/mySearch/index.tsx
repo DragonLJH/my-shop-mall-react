@@ -46,7 +46,7 @@ const MySearch: FC = () => {
                         </div>
                     </div>
                     <div className="my-search-item shop">
-                        <ShoppingCartOutlined /><span onClick={() => { history.replace({ pathname: "/shoppingCartPage" }); }}> 购物车</span>
+                        <span onClick={() => { history.replace({ pathname: "/shoppingCartPage" }); }}><ShoppingCartOutlined />购物车</span>
                     </div>
                 </div>
             }
