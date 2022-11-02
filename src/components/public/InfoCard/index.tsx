@@ -20,7 +20,7 @@ const InfoCard: FC<{ item: any, isflex: boolean }> = (props: any) => {
         <>
             <Card className={`info-card ${isflex ? "info-card-flex" : ""}`} onClick={() => { toProductDetailsPage(item.productId) }}
                 hoverable
-                cover={<img alt="example" src={item.productRotationImg[0]} />}
+                cover={<img className="info-card-img" alt="example" src={item.productRotationImg[0]} />}
             >
                 <Meta
                     title={<>

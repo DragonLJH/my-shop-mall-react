@@ -5,6 +5,7 @@ import { useHistory, useLocation } from "react-router-dom";
 import { Card, List, Tooltip, Typography } from 'antd';
 import { queryProductByEmergeApi } from "../../../api";
 import { UserOutlined, PayCircleOutlined } from '@ant-design/icons';
+import InfoCard from "../InfoCard/index"
 
 const { Meta } = Card;
 const { Paragraph, Link, Text, Title } = Typography;
@@ -70,21 +71,22 @@ const EmergeCart: FC<any> = ({ ...rest }): any => {
 
                 {emergeCartData.map((item: any, index: number) => {
                     return (
-                        <div key={index} className="emerge-cart-item" onClick={() => { toProductDetailsPage(item["productId"]) }}>
-                            <Card onClick={() => { toProductDetailsPage(item.productId) }}
-                                hoverable
-                                cover={<img className="emerge-cart-item-img" src={item.productRotationImg[0]} />}
-                            >
-                                <Meta
-                                    // avatar={<PayCircleOutlined />}
-                                    title={<>
-                                        <Title level={5}>{item.productName}</Title>
-                                        <Text type="danger">￥{item.productSellingPrice}</Text>
-                                    </>}
-                                    description={<Paragraph ellipsis={{ rows: 2, tooltip: item.productMsg }} >{item.productMsg} </Paragraph>}
-                                />
-                            </Card>
-                        </div>
+                        // <div key={index} className="emerge-cart-item" onClick={() => { toProductDetailsPage(item["productId"]) }}>
+                        //     <Card onClick={() => { toProductDetailsPage(item.productId) }}
+                        //         hoverable
+                        //         cover={<img className="emerge-cart-item-img" src={item.productRotationImg[0]} />}
+                        //     >
+                        //         <Meta
+                        //             // avatar={<PayCircleOutlined />}
+                        //             title={<>
+                        //                 <Title level={5}>{item.productName}</Title>
+                        //                 <Text type="danger">￥{item.productSellingPrice}</Text>
+                        //             </>}
+                        //             description={<Paragraph ellipsis={{ rows: 2, tooltip: item.productMsg }} >{item.productMsg} </Paragraph>}
+                        //         />
+                        //     </Card>
+                        // </div>
+                        <InfoCard key={index} item={item} isflex={false} />
                     )
                 })}
             </Card>
